@@ -102,6 +102,7 @@ GEM
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
+    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -139,9 +140,12 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
+    nokogiri (1.15.2-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
     pg (1.5.3)
+    pg (1.5.3-x64-mingw-ucrt)
     popper_js (2.11.7)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -217,6 +221,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2023.3)
+      tzinfo (>= 1.0.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -235,6 +241,7 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES

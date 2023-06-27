@@ -1,5 +1,6 @@
 <h1 class="text-center">Register</h1>
 <div class="container">
+  <%= render "shared/errors" , object: @user %>
   <%= form_with model: @user  do |form| %>
     <div class="mb-1">
       <%= form.label :name , class: "form-label" %>
