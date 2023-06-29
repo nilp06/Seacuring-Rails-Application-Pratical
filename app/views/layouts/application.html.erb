@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SecuringRailsApplicationPratical</title>
+    <title>Securing Rails Application Pratical</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
+  <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <%= link_to "Securing Rails Application", root_path, class:"navbar-brand" %>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        <% if !user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Login", new_session_path , class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Register", new_user_path, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item" >
+            <%= link_to "Logout", session_destroy_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <% if cookies[:user_name] %>
+      <h1>Welcome <%= cookies[:user_name] %></h1>
+    <% end %>
+    <% if flash.any? %>
+      <% flash.each do |type,msg| %>
+        <div class="alert alert-<%= type%> alert-dismissible fade show" role="alert">
+          <%= msg %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
   <body>
     <%= yield %>
   </body>

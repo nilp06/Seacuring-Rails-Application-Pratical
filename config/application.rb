@@ -10,9 +10,9 @@ module SecuringRailsApplicationPratical
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    config.filter_parameters += %i[password password_confirmation name email]
     # Configuration for the application, engines, and railties goes here.
-    #
+    config.force_ssl = true
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
